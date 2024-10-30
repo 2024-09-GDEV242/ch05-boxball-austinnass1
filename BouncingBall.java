@@ -18,7 +18,7 @@ import java.awt.geom.*;
 
 public class BouncingBall
 {
-    private static final int GRAVITY = 3;  // effect of gravity
+    private static final int GRAVITY = 3;  
 
     private int ballDegradation = 2;
     private Ellipse2D.Double circle;
@@ -26,16 +26,16 @@ public class BouncingBall
     private int diameter;
     private int xPosition;
     private int yPosition;
-    private final int groundPosition;      // y position of ground
+    private final int groundPosition;      
     private Canvas canvas;
-    private int ySpeed = 1;                // initial downward speed
+    private int ySpeed = 1;                
 
     /**
-     * Constructor for objects of class BouncingBall
+     * Constructors for objects of class BouncingBall
      *
-     * @param xPos  the horizontal coordinate of the ball
-     * @param yPos  the vertical coordinate of the ball
-     * @param ballDiameter  the diameter (in pixels) of the ball
+     * @param xPos  the horizontal measurements of the ball
+     * @param yPos  the vertical measurements of the ball
+     * @param ballDiameter  the width of the ball
      * @param ballColor  the color of the ball
      * @param groundPos  the position of the ground (where the wall will bounce)
      * @param drawingCanvas  the canvas to draw this ball on
@@ -69,25 +69,25 @@ public class BouncingBall
     }    
 
     /**
-     * Move this ball according to its position and speed and redraw.
+     * Move this ball according to its position and speed.
      **/
     public void move()
     {
-        // remove from canvas at the current position
+        
         erase();
             
-        // compute new position
+       
         ySpeed += GRAVITY;
         yPosition += ySpeed;
         xPosition +=2;
 
-        // check if it has hit the ground
-        if (yPosition >= (groundPosition - diameter) && ySpeed > 0) {
+        
+        if(yPosition >= (groundPosition - diameter) && ySpeed > 0) {
             yPosition = (int)(groundPosition - diameter);
             ySpeed = -ySpeed + ballDegradation; 
         }
 
-        // draw again at new position
+        
         draw();
     }    
 
